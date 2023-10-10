@@ -1,10 +1,13 @@
-This folder contains all required documents, including SPPP, SDD, STD, meetingminutes and progressreport
+This folder contains all required documents, including SPPP, SDD, STD, meeting minutes and progressreport
 
-doc/CS673_SDD_team5:
-	Document going into detail on our design and architecture of the code. Along with some early UI designs
+ doc/CS673_presentation2_team5:
+	Slide show explaining our project features and automatic testing
 
-doc/CS673_STD_team5:
-	Document going into detail on Testing strategies and what we have tested thus far. In the future we will add automatica testing and better ways to grab our metrics on code coverage
+doc/CS673_SDD_team5 (Updated):
+	Document going into detail on our design and architecture of the code. Along with some early UI designs.
+
+doc/CS673_STD_team5 (Updated):
+	Document going into detail on Testing strategies and what we have tested thus far including automatic and manual testing.
 
 doc/CS673_SPPP_team5 (Updated):
 	Document going into detail on each role, requirement, management plan and Quality assurance plan that our team has come up with
@@ -15,10 +18,13 @@ doc/CS673_progressreport_team5 (Updated):
 doc/CS673_meetingminutes_team5 (Updated):
 	All action items and discussions that happened during our phone call meetings
 
-doc/CS673_presentation0_team5 (Updated):
+ doc/CS673_presentation1_team5:
+	Slide show explaining our project and elements from the STD and SDD document
+
+doc/CS673_presentation0_team5:
 	Slide show explaining our project and elements from the SPPP document
 
-doc/CS673_SPPP_RiskManagment_team5:
+doc/CS673_SPPP_RiskManagment_team5 (Updated):
 	Excel document that goes into detail on the different risks that could arise. Sorting them by priority
 
 
