@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import { Container, Form, Button, Alert, Col, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import {useLocation} from "react-router-dom";
+
 
 function CheckoutForm() {
+  const location = useLocation();
+  //console.log(location.state.reservationDetails.item_id)
   window.onload = function () {
     var clickMeButton = document.getElementById("clickme");
     clickMeButton.onclick = youClicked;
@@ -15,6 +19,7 @@ function CheckoutForm() {
 
   const [showAlert, setShowAlert] = useState(false);
   const is_paid = false;
+  const price = 100;
 
 
   const navigate = useNavigate(); 
@@ -36,6 +41,9 @@ function CheckoutForm() {
   return (
     <Container>
       <h1>Checkout</h1>
+      <div>
+        <p>Price: $ {price}</p>
+      </div>
       <input type="submit" id="clickme" value="Help" />
       <hr />
       <Form
@@ -175,14 +183,16 @@ function validateForm() {
     return false;
   }
 
-  var cvc = document.getElementById("cvc");
-  if (cvc.value.length !== 3) {
-    alert("Sorry: The CVC number should be of 3 digits");
-    cvc.focus();
+  var cardNumberElement = document.getElementById("cardNumber");
+  var cardNumber = cardNumberElement.value;
+
+  if (cardNumber.length < 12 || cardNumber.length > 16) {
+    alert("Sorry: Card Number should be of 12 to 16 digits");
+    cardNumberElement.focus();
     return false;
   }
 
-  var monthValid = document.getElementById("validThru");
+var monthValid = document.getElementById("validThru");
 var monthValue = monthValid.value.trim();
 
 var validPattern = /^(0[1-9]|1[0-2])\/\d{2}$/;
@@ -190,6 +200,40 @@ var validPattern = /^(0[1-9]|1[0-2])\/\d{2}$/;
 if (!validPattern.test(monthValue)) {
     alert("Sorry: Please enter your Credit Card's 'valid thru' information in the form MM/YY. e.g: 12/23");
     monthValid.focus();
+    return false;
+}
+
+var [validMonth, validYear] = monthValue.split("/");
+
+
+var currentDate = new Date();
+
+
+var currentMonth = String(currentDate.getMonth() + 1).padStart(2, "0"); // Adding 1 to get the correct month (0-indexed)
+var currentYear = String(currentDate.getFullYear()).slice(2);
+
+validMonth = parseInt(validMonth, 10);
+validYear = parseInt(validYear, 10);
+
+
+currentMonth = parseInt(currentMonth, 10);
+currentYear = parseInt(currentYear, 10);
+
+if (validYear < currentYear || (validYear === currentYear && validMonth < currentMonth)) {
+    alert("Sorry: The card you are using has expired. Please use a card that has a minimum expiry of " + currentMonth + "/" + currentYear);
+    monthValid.focus();
+    return false;
+}
+
+var cvc = document.getElementById("cvc");
+var cvcinput = cvc.value.trim(); 
+
+
+var cvcValid = /^\d{3}$/;
+
+if (!cvcValid.test(cvcinput)) {
+    alert("Sorry: Invalid CVC. Please enter exactly 3 digits.");
+    cvc.focus();
     return false;
 }
 
@@ -201,15 +245,6 @@ if (!validPattern.test(monthValue)) {
     message.focus();
     return false;
   }
-
-  var cardNumberElement = document.getElementById("cardNumber");
-  var cardNumber = cardNumberElement.value;
-
-  if (cardNumber.length < 12 || cardNumber.length > 16) {
-    alert("Sorry: Card Number should be of 12 to 16 digits");
-    cardNumberElement.focus();
-    return false;
-  } else {
     const cardDigits = cardNumber.split("").map(Number);
     cardDigits.reverse();
 
@@ -231,6 +266,6 @@ if (!validPattern.test(monthValue)) {
       return false;
     }
   }
-}
+
 
 export default CheckoutForm;
