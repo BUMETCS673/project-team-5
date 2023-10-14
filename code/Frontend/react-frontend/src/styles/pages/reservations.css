@@ -1,0 +1,41 @@
+/* ReservationForm.css */
+.reservation-form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .reservation-form h3 {
+    color: #333;
+  }
+  
+  .reservation-page-form-group {
+    margin-bottom: 20px;
+  }
+  
+  .reservation-page-form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .reservation-page-form-group p {
+    background-color: #eee;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+    font-style: italic;
+  }
+  
+  #submitButton {
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }

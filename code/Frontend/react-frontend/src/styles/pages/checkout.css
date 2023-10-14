@@ -1,0 +1,20 @@
+.checkout-form-container {
+    margin: 0 auto;
+    max-width: auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    color: black;
+  }
+
+  .containerSuccess{
+    display: "flex" !important;
+    flex-direction: "column" !important;
+    justify-content: "flex-end" !important;
+    align-items: "center" !important;
+    min-height: "60vh" !important;
+  }
+
+

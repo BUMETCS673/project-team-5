@@ -3,14 +3,20 @@ import { Container, Form, Button, Alert, Col, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import {useLocation} from "react-router-dom";
 
-
+//This function initializes and manages the checkoutForm and retreives reservation data
+import { useLocation, useNavigate } from "react-router-dom";
+import "../styles/pages/checkout.css";
+import NavbarCustom from "../Components/Navbar";
+import "../styles/pages/register.css";
 function CheckoutForm() {
   const location = useLocation();
-  //console.log(location.state.reservationDetails.item_id)
+
+
   window.onload = function () {
     var clickMeButton = document.getElementById("clickme");
     clickMeButton.onclick = youClicked;
   };
+// This function informs users to fill in the required information before submission
   function youClicked() {
     alert(
       "Please fill in the boxes below.\nIncomplete information will not be submitted."
@@ -21,24 +27,25 @@ function CheckoutForm() {
   const is_paid = false;
   const price = 100;
 
+  const navigate = useNavigate();
 
-  const navigate = useNavigate(); 
-
+// This function allows the user to naviagte to the payment Successful page when called
   const handleSuccessfulPayment = () => {
-    
-    navigate("/PaymentSuccessful"); 
+    navigate("/PaymentSuccessful");
   };
 
+//This function is executed when a form is submitted
   const handleFormSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
       console.log("Form is valid. Submitting...");
       //is_paid = true;
-      handleSuccessfulPayment(); 
+      handleSuccessfulPayment();
     }
   };
-
+// This is the component for the checkout form, it collects payment information details with demographic data
   return (
+
     <Container>
       <h1>Checkout</h1>
       <div>
@@ -63,97 +70,133 @@ function CheckoutForm() {
         <Form.Label className="text-info">
           Enter your Billing Address:
         </Form.Label>
+
+    <div>
+      <NavbarCustom />
+      <Container className="checkout-form-container">
         <Row>
-          <Col>
-            <Form.Control
-              type="text"
-              name="textName"
-              id="streetAddress"
-              placeholder="Street Address"
-              required
-            />
+          <Col md={3} className="items-hosted-column">
+            <h1>Checkout</h1>
           </Col>
-          <Col>
-            <Form.Control
-              type="text"
-              name="textName"
-              id="unitNo"
-              placeholder="House/Unit/Apartment No"
-              required
+          <Col md={2} className="items-hosted-column">
+            <input
+              type="submit"
+              style={{ marginTop: "10%" }}
+              id="clickme"
+              value="Help"
             />
           </Col>
         </Row>
+        <hr />
+        <Form
+          name="Payment Details"
+          method="post"
+          action=""
+          noValidate
+          onSubmit={handleFormSubmit}
+        >
+          <Form.Group>
+            <Form.Label>Full Name as it appears on your Card:</Form.Label>
+            <Form.Control type="text" name="textName" id="fullName" required />
+          </Form.Group>
 
-        <Row>
-          <Col>
-            <Form.Control
-              type="text"
-              name="textName"
-              id="state"
-              placeholder="State (e.g., MA)"
-              required
-            />
-          </Col>
-          <Col>
-            <Form.Control
-              type="text"
-              name="textName"
-              id="zipCode"
-              placeholder="Zip Code"
-              required
-            />
-          </Col>
-        </Row>
-
-        <Form.Group>
-          <Form.Label className="text-info">Card Number:</Form.Label>
-          <Form.Control type="text" name="textName" id="cardNumber" required />
-        </Form.Group>
-
-        <Row>
-          <Col>
-            <Form.Group>
-              <Form.Label className="text-info">
-                Valid Through (MM/YY):
-              </Form.Label>
+          <Form.Label>Enter your Billing Address:</Form.Label>
+          <Row>
+            <Col>
               <Form.Control
                 type="text"
                 name="textName"
-                id="validThru"
+                id="streetAddress"
+                placeholder="Street Address"
                 required
               />
-            </Form.Group>
-          </Col>
-          <Col>
-            <Form.Group>
-              <Form.Label className="text-info">CVC:</Form.Label>
-              <Form.Control type="text" name="textName" id="cvc" required />
-            </Form.Group>
-          </Col>
-        </Row>
+            </Col>
+            <Col>
+              <Form.Control
+                type="text"
+                name="textName"
+                id="unitNo"
+                placeholder="House/Unit/Apartment No"
+                required
+              />
+            </Col>
+          </Row>
 
-        <Form.Group>
-          <Form.Label className="text-info">
-            Please write your experience here: (required)
-          </Form.Label>
-          <Form.Control
-            as="textarea"
-            rows={5}
-            cols={50}
-            name="taComments"
-            id="message"
-            required
-          />
-        </Form.Group>
+          <Row>
+            <Col>
+              <Form.Control
+                type="text"
+                name="textName"
+                id="state"
+                placeholder="State (e.g., MA)"
+                required
+              />
+            </Col>
+            <Col>
+              <Form.Control
+                type="text"
+                name="textName"
+                id="zipCode"
+                placeholder="Zip Code"
+                required
+              />
+            </Col>
+          </Row>
 
-        <Button variant="primary" type="submit">
-          Pay
-        </Button>
-      </Form>
-    </Container>
+          <Form.Group>
+            <Form.Label>Card Number:</Form.Label>
+            <Form.Control
+              type="text"
+              name="textName"
+              id="cardNumber"
+              required
+            />
+          </Form.Group>
+
+          <Row>
+            <Col>
+              <Form.Group>
+                <Form.Label>Valid Through (MM/YY):</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="textName"
+                  id="validThru"
+                  required
+                />
+              </Form.Group>
+            </Col>
+            <Col>
+              <Form.Group>
+                <Form.Label>CVC:</Form.Label>
+                <Form.Control type="text" name="textName" id="cvc" required />
+              </Form.Group>
+            </Col>
+          </Row>
+
+          <Form.Group>
+            <Form.Label>
+              Please write your experience here: (required)
+            </Form.Label>
+            <Form.Control
+              as="textarea"
+              rows={5}
+              cols={50}
+              name="taComments"
+              id="message"
+              required
+            />
+          </Form.Group>
+
+          <Button variant="success" className="FormButton" type="submit">
+            Pay
+          </Button>
+        </Form>
+      </Container>
+    </div>
   );
 }
 
+//This function is used to make validaitons on the form to avoid information being entered that will prevent any mistakes from being passed into the database
 function validateForm() {
   var fullName = document.getElementById("fullName");
   if (fullName.value.length < 2) {
@@ -192,16 +235,20 @@ function validateForm() {
     return false;
   }
 
+
 var monthValid = document.getElementById("validThru");
 var monthValue = monthValid.value.trim();
 
-var validPattern = /^(0[1-9]|1[0-2])\/\d{2}$/;
 
-if (!validPattern.test(monthValue)) {
-    alert("Sorry: Please enter your Credit Card's 'valid thru' information in the form MM/YY. e.g: 12/23");
+  var validPattern = /^(0[1-9]|1[0-2])\/\d{2}$/;
+
+  if (!validPattern.test(monthValue)) {
+    alert(
+      "Sorry: Please enter your Credit Card's 'valid thru' information in the form MM/YY. e.g: 12/23"
+    );
     monthValid.focus();
     return false;
-}
+  }
 
 var [validMonth, validYear] = monthValue.split("/");
 

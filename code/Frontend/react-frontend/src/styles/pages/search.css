@@ -1,0 +1,61 @@
+/* Style the search bar */
+.searchBar {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    width: 70%;
+    margin-left: 15%;
+  }
+  
+  #searchInput {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 50px 50px 50px 50px;
+    flex: 1;
+  }
+  
+  #searchButton {
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  
+  /* Style the radio buttons and labels */
+  input[type="radio"] {
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+  
+  label {
+    display: inline-block;
+    margin-right: 15px;
+    cursor: pointer;
+  }
+  
+ 
+  /* Style the filter options container */
+.filterOptions {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 35px;
+    margin-top: 10px;
+  }
+  
+  /* Style the availability filter section */
+  .availabilityFilter {
+    width: 80%;
+    margin-top: 10px;
+    margin-left: 35px;
+    /* Other styles for the availability filter section */
+  }
+  
+  
+  /* Style the price range labels */
+  .priceRangeLabels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }

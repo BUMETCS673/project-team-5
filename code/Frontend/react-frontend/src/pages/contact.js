@@ -6,6 +6,7 @@ import Button from "react-bootstrap/esm/Button.js";
 import "../styles/pages/contact.css";
 import "../styles/pages/home.css";
 
+//This function is a functional component responsible for rendering a contact form and managing user input and submission status. 
 export default function Contact() {
   let [firstName, setFirst] = React.useState("");
   let [lastName, setLast] = React.useState("");
@@ -14,6 +15,7 @@ export default function Contact() {
   let [msg, setMsg] = React.useState("");
   let [submitMsg, setSubmitMsg] = React.useState("");
 
+  //This function handles the form submission. When the user submits the form
   const submit = (e) => {
     e.preventDefault();
     setSubmitMsg("Loading...");
@@ -31,6 +33,7 @@ export default function Contact() {
     setMsg("");
   };
 
+  //This component  is rendering a contact form within a web page, styled with Bootstrap, allowing users to enter their first name, last name, email, subject, and message. 
   return (
     <>
       <NavbarCustom />

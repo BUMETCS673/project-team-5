@@ -1,0 +1,13 @@
+.popup-inner {
+    margin: 10px;
+}
+
+.popup-inner .closeButton {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}
+
+.radio-button-group input {
+    margin: 10px;
+}

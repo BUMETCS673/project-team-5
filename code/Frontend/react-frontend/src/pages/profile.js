@@ -5,33 +5,34 @@ import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
 
 import { useUser } from "../Components/UserContext";
 
+// Ths infunction is used to displat the user data
 function UserDataList() {
   const [userData, setUserData] = useState([]);
   const [selectedUser, setSelectedUser] = useState(null);
   const { username } = useUser();
   console.log(username);
-
+  
+//This function is used to fetch the user data when the component mounts 
   useEffect(() => {
     fetchUserData();
   }, []);
 
+// This function is used for making an API request to retrieve user data
   const fetchUserData = () => {
-    // Fetch user data from your Flask API endpoint
     fetch("http://127.0.0.1:5000/api/getUsers")
       .then((response) => response.json())
       .then((data) => setUserData(data))
       .catch((error) => console.error("Error:", error));
   };
 
+//This function sets the selected user in the selectedUser state
   const handleCardClick = (user) => {
     setSelectedUser(user);
   };
-
+//This is the component that renders a list of all users
   return (
     <div>
       <NavbarCustom />
@@ -43,6 +44,7 @@ function UserDataList() {
               <Link to={`user/${user}`} style={{ textDecoration: "none" }}>
                 <Card
                   onClick={() => handleCardClick(user)}
+                  name={`${user}`}
                   style={{ cursor: "pointer" }}
                 >
                   <Card.Body>

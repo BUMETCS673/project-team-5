@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 import time
 
 base_url = "http://localhost:3000/"
-email_all_correct = "renter@gmail.com"
+email_all_correct = "renterhost@gmail.com"
 password_all_correct = "password"
 password_not_correct = "wrongpassword"
 email_wrong_format = "renter@gmail"
