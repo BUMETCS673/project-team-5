@@ -1,0 +1,21 @@
+.contact-form {
+    text-align: left;
+    background-color: white;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.contact-page-form-group {
+    margin-bottom: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.form-label {
+    font-size: 20px;
+}
+
+.form-submit {
+    margin-bottom: 25px;
+    width: 900px;
+}

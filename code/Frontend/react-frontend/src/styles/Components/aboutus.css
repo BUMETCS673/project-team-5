@@ -1,0 +1,89 @@
+/* Adding Styling for About Us Component */
+.containerAbout {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top:10px;
+  }
+  
+  .logo {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+@keyframes magnify {
+  0% {
+    transform: scale(1.8); /* Start at normal size */
+  }
+  100% {
+    transform: scale(1); /* Back to normal size */
+  }
+}
+
+h2 {
+  font-size: 2em;
+  color: #333333;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  color: #666666;
+  margin-bottom: 20px;
+}
+
+.cta {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #ff6600;
+}
+
+.emoji {
+  font-size: 1.5em;
+}
+
+.team-images {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+.image-container {
+  position: relative;
+  margin: 10px;
+  cursor: pointer;
+  width: 350px;
+  height: auto;
+  overflow: hidden;
+}
+
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Maintain aspect ratio */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.8s;
+}
+
+.image-container:hover .overlay {
+  opacity: 1;
+  animation: magnify 1.5s;
+}

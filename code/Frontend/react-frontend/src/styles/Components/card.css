@@ -1,0 +1,39 @@
+.equal-height-cards {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .equal-height-cards .card {
+    flex: 1;
+    margin-right: 15px; /* Optional: Add some spacing between cards */
+    margin-bottom: 15px; /* Optional: Add some spacing between cards */
+  }
+  .container2 {
+    margin: 0 auto;
+  }
+
+  .card {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.2s ease-in-out;
+    box-sizing: border-box;
+    margin-top:10px;
+    margin-bottom:10px;
+    background-color:#FCF9DF !important;
+  }
+  
+  .card:hover {
+    box-shadow: 0 5px 5px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  }
+  .card > .card-inner {
+    padding:10px;
+  }
+  .card .header h2, h3 {
+    margin-bottom: 0px;
+    margin-top:0px;
+  }
+  .card .header {
+    margin-bottom:5px;
+  }
+  .card img{
+    width:100%;
+  }

@@ -1,0 +1,12 @@
+venv/
+__pycache__/
+flask_session/
+.env/
+bin/
+*/bin/*
+Pipfile/
+Pipfile.lock/
+/node_modules
+Users/
+.DS_Store/
+*.pyc

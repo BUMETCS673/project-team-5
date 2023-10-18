@@ -1,0 +1,37 @@
+.GoogleLoginDiv {
+    margin-left: 25%;
+    margin-right: 25%;
+    position: relative;
+    align-items: center;
+}
+
+.GoogleLogin {
+    display: flex;
+    justify-content: center;
+    margin-top: 25%;
+    width:100%;
+}
+
+.FormButtonDiv {
+    display: flex;
+    justify-content: left;
+    margin-left: 10px;
+}
+
+.FormButton {
+    font-size: 20px;
+    width: 100%; /* Adjust the width as needed */
+  margin-top: 10px;
+}
+
+.error-messages {
+    display: absolute;
+    justify-content: left;
+    margin-left: 30px;
+}
+
+.dont-have-account{
+    margin-left: 20%;
+    margin-top: 5%;
+}
+
