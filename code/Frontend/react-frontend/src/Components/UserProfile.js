@@ -35,7 +35,7 @@ function UserProfile() {
 
   // This function is used to Fetch equipment data from the server based on 'usernameSelected'.
   const fetchEquipmentData = () => {
-    fetch(`https://gearonthego-52bc9f57a8cd.herokuapp.com/api/items/${usernameSelected}`)
+    fetch(`http://127.0.0.1:5000/api/items/${usernameSelected}`)
       .then((response) => response.json())
       .then((data) => {
         console.log("Fetched equipment data:", data); // Debug statement
@@ -45,7 +45,7 @@ function UserProfile() {
   };
   // This function is used to fetch reviews data from the server based on 'usernameSelected'.
   const fetchReviewsData = () => {
-    fetch(`https://gearonthego-52bc9f57a8cd.herokuapp.com/api/getReviews/${usernameSelected}`)
+    fetch(`http://127.0.0.1:5000/api/getReviews/${usernameSelected}`)
       .then((response) => response.json())
       .then((data) => setReviews(data))
       .catch((error) => console.error("Error:", error));
@@ -72,7 +72,7 @@ function UserProfile() {
       target: usernameSelected,
     };
     // This fetch sends a POST request to add the review to the server.
-    fetch("https://gearonthego-52bc9f57a8cd.herokuapp.com/api/addReviews", {
+    fetch("http://127.0.0.1:5000/api/addReviews", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -9,8 +9,7 @@
 /coverage
 
 # production
-# Comment this out for running the service locally and deploying to Heroku 
-# /build
+/build
 
 # misc
 .DS_Store

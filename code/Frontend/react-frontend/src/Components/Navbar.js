@@ -30,12 +30,11 @@ export function NavbarCustom(props) {
     setLoginData(null);
     setUsername("Guest");
     // Perform logout logic here
-    fetch("https://gearonthego-52bc9f57a8cd.herokuapp.com/api/logout", {
+    fetch("http://127.0.0.1:5000/api/logout", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: {}
     })
       .then((response) => {
         if (response.status === 200) {

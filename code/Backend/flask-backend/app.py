@@ -6,7 +6,7 @@ import requests
 import json
 import urllib
 import urllib.parse as up
-from flask import Flask, render_template, send_from_directory, url_for, redirect, flash, request, jsonify, session
+from flask import Flask, render_template, url_for, redirect, flash, request, jsonify, session
 from werkzeug.urls import url_decode
 from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user, current_user
 from flask_wtf import FlaskForm
@@ -24,7 +24,8 @@ from flask_wtf.csrf import generate_csrf
 from google.auth import jwt
 from datetime import datetime
 
-app = Flask(__name__, static_folder='../../Frontend/react-frontend/build/static', template_folder='../../Frontend/react-frontend/build/')
+
+app = Flask(__name__)
 load_dotenv()
 
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
@@ -42,7 +43,7 @@ class User(db.Model):
     email = db.Column(db.String(255), nullable=False, unique=True)
     password = db.Column(db.String(255), nullable=False)
 
-CORS(app, resources={r"/api/*": {"origins": "*"}, r"/*": {"origins": "*"}})  # Allow all origins for development; restrict in production
+CORS(app)  # Allow all origins for development; restrict in production
 # Generate a 32-character (16 bytes) random hexadecimal string
 secret_key = secrets.token_hex(16)
 
@@ -112,11 +113,6 @@ class LoginForm(FlaskForm):
                              InputRequired(), Length(min=8, max=20)], render_kw={"placeholder": "Password"})
 
     submit = SubmitField('Login')
-
-# Load frontend homepage
-@app.route("/")
-def index():
-    return render_template('index.html')
 
 #API route to remove item from equipment database table
 @app.route("/api/removeEquipment/<int:item_id>", methods=["DELETE"])
@@ -640,4 +636,4 @@ def get_items():
         return jsonify({"error": str(e)}), 500
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run(debug=True)

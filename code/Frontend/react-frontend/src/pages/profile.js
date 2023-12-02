@@ -22,7 +22,7 @@ function UserDataList() {
 
 // This function is used for making an API request to retrieve user data
   const fetchUserData = () => {
-    fetch("https://gearonthego-52bc9f57a8cd.herokuapp.com/api/getUsers")
+    fetch("http://127.0.0.1:5000/api/getUsers")
       .then((response) => response.json())
       .then((data) => setUserData(data))
       .catch((error) => console.error("Error:", error));

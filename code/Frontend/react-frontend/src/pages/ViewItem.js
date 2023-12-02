@@ -44,7 +44,7 @@ function View() {
     };
 //This fetch call  makes a POST request to the server's API to add new equipment. 
 //Upon a successful response, it logs the data, navigates to a different route, and optionally updates the equipment data.
-    fetch("https://gearonthego-52bc9f57a8cd.herokuapp.com/api/addEquipment", {
+    fetch("http://127.0.0.1:5000/api/addEquipment", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -99,21 +99,21 @@ function View() {
   }, [username]);
 //This function fetches the equipment from the database server
   const fetchEquipmentData = () => {
-    fetch("https://gearonthego-52bc9f57a8cd.herokuapp.com/api/getEquipment")
+    fetch("http://127.0.0.1:5000/api/getEquipment")
       .then((response) => response.json())
       .then((data) => setEquipmentData(data))
       .catch((error) => console.error("Error:", error));
   };
 //This function fetches the reservations from the database server
   const fetchReservationData = () => {
-    fetch("https://gearonthego-52bc9f57a8cd.herokuapp.com/api/getReservation")
+    fetch("http://127.0.0.1:5000/api/getReservation")
       .then((response) => response.json())
       .then((data) => setReservationData(data))
       .catch((error) => console.error("Error:", error));
   };
 //This function fetches the reviews from the database server
   const fetchReviewsData = () => {
-    fetch(`https://gearonthego-52bc9f57a8cd.herokuapp.com/api/getReviews/${username}`)
+    fetch(`http://127.0.0.1:5000/api/getReviews/${username}`)
       .then((response) => response.json())
       .then((data) => setReviews(data))
       .catch((error) => console.error("Error:", error));
@@ -133,7 +133,7 @@ function View() {
       return;
     }
     console.log("Selected Item:", selectedItem);
-    fetch(`https://gearonthego-52bc9f57a8cd.herokuapp.com/api/removeEquipment/${selectedItem.itemid}`, {
+    fetch(`http://127.0.0.1:5000/api/removeEquipment/${selectedItem.itemid}`, {
       method: "DELETE",
     })
       .then((response) => response.json())
@@ -171,7 +171,7 @@ function View() {
   const handleUpdateSubmit = (event) => {
     event.preventDefault();
     console.log(updateFormData);
-    fetch(`https://gearonthego-52bc9f57a8cd.herokuapp.com/api/updateEquipment/${updateFormData.id}`, {
+    fetch(`http://127.0.0.1:5000/api/updateEquipment/${updateFormData.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -205,7 +205,7 @@ function View() {
     console.log("Selected Reservation:", selectedReservation);
     fetch(
       // reservation will be removed from the database -> payment will be returned via Payment system (implementation details omitted)
-      `https://gearonthego-52bc9f57a8cd.herokuapp.com/api/removeReservation/${selectedReservation.reservation_id}`,
+      `http://127.0.0.1:5000/api/removeReservation/${selectedReservation.reservation_id}`,
       {
         method: "DELETE",
       }
@@ -241,7 +241,7 @@ function View() {
     event.preventDefault();
     console.log(updateReservationData);
     fetch(
-      `https://gearonthego-52bc9f57a8cd.herokuapp.com/api/updateReservation/${updateReservationData.reservation_id}`,
+      `http://127.0.0.1:5000/api/updateReservation/${updateReservationData.reservation_id}`,
       {
         method: "PUT",
         headers: {

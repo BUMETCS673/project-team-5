@@ -24,7 +24,7 @@ function EquipmentList() {
 //This is a function that takes an equipment object as a parameter and updates the selectedItem state with the selected equipment
   const fetchEquipmentData = () => {
     // Fetch equipment data from your Flask API endpoint
-    fetch("https://gearonthego-52bc9f57a8cd.herokuapp.com/api/getEquipment")
+    fetch("http://127.0.0.1:5000/api/getEquipment")
       .then((response) => response.json())
       .then((data) => setEquipmentData(data))
       .catch((error) => console.error("Error:", error));

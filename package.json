@@ -1,5 +1,0 @@
-{
-    "scripts": {
-        "heroku-postbuild": "npm install --prefix ./code/Frontend/react-frontend && npm run build --prefix ./code/Frontend/react-frontend"
-      }
-}

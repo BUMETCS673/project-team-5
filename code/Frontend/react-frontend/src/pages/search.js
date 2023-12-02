@@ -29,13 +29,13 @@ function ItemSearchAndFilter() {
     let endpoint;
 
     if (availabilityFilter === "searchItems") {
-      endpoint = `https://gearonthego-52bc9f57a8cd.herokuapp.com/api/searchItems?q=${searchQuery}&minPrice=${priceRange[0]}&maxPrice=${priceRange[1]}`;
+      endpoint = `http://127.0.0.1:5000/api/searchItems?q=${searchQuery}&minPrice=${priceRange[0]}&maxPrice=${priceRange[1]}`;
     } else if (availabilityFilter === "available") {
-      endpoint = `https://gearonthego-52bc9f57a8cd.herokuapp.com/api/searchItems?q=${searchQuery}&minPrice=${priceRange[0]}&maxPrice=${priceRange[1]}&availability=available`;
+      endpoint = `http://127.0.0.1:5000/api/searchItems?q=${searchQuery}&minPrice=${priceRange[0]}&maxPrice=${priceRange[1]}&availability=available`;
     } else if (availabilityFilter === "unavailable") {
-      endpoint = `https://gearonthego-52bc9f57a8cd.herokuapp.com/api/searchItems?q=${searchQuery}&minPrice=${priceRange[0]}&maxPrice=${priceRange[1]}&availability=unavailable`;
+      endpoint = `http://127.0.0.1:5000/api/searchItems?q=${searchQuery}&minPrice=${priceRange[0]}&maxPrice=${priceRange[1]}&availability=unavailable`;
     } else {
-      endpoint = `https://gearonthego-52bc9f57a8cd.herokuapp.com/api/items?availability=${availabilityFilter}`;
+      endpoint = `http://127.0.0.1:5000/api/items?availability=${availabilityFilter}`;
     }
 
     fetch(endpoint).then(handleResponse).catch(handleError);
